@@ -29,9 +29,7 @@ public class DeviceDataSource: IDeviceDataSource {
             let desiredLen = UnsafeMutablePointer<Int>.allocate(capacity: 1)
             let lenRequestError = sysctl(hwName, 2, nil, desiredLen, nil, 0)
             if lenRequestError != 0 {
-                // TODO: better error log
                 print("error #\(errno): \(String(describing: String(utf8String: strerror(errno))))")
-
                 return nil
             }
 
